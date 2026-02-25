@@ -39,8 +39,8 @@ func (o *Order) TotalAmount() (int, error) {
 		return 0, errors.New("")
 	}
 	totalAmount := 0
-	for _, order := range o.Items {
-		totalAmount += order.Product.Price * order.Quantity
+	for _, item := range o.Items {
+		totalAmount += item.TotalPrice()
 	}
 	return totalAmount, nil
 }
